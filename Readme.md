@@ -12,7 +12,8 @@ $ npm install
 Then run it with the following ENV vars:
 
 - `WEPLAY_ROM` - pointing to the rom you want to emulate
-- `WEPLAY_REDIS` - redis uri (`localhost:6379`)
+- `WEPLAY_REDIS_URI` - redis uri (`localhost:6379`)
+- `WEPLAY_REDIS_AUTH` - redis auth password (default empty)
 - `WEPLAY_SAVE_INTERVAL` - state save frequency (`60000`)
 
 ```
