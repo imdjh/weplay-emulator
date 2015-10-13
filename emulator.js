@@ -8,7 +8,10 @@ module.exports = Emulator;
 function Emulator(){
   if (!(this instanceof Emulator)) return new Emulator();
   this.canvas = new Canvas(160, 144);
-  this.gbOpts = { drawEvents: true };
+  this.gbOpts = { drawEvents: true,
+      interval: 45,
+      imageSmoothing: false,
+      gbBootRom: true};
 }
 
 Emulator.prototype.__proto__ = Emitter.prototype;
