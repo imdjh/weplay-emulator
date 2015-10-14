@@ -11,7 +11,10 @@ function Emulator(){
   this.gbOpts = { drawEvents: true,
       interval: 29,
       imageSmoothing: false,
-      gbBootRom: true};
+      gbBootRom: true,
+      overrideMbc: false,
+      sound: false
+  };
 }
 
 Emulator.prototype.__proto__ = Emitter.prototype;
