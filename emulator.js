@@ -32,7 +32,7 @@ Emulator.prototype.initWithState = function(state){
 Emulator.prototype.run = function(){
   var gb = this.gameboy;
   gb.stopEmulator = 1; // not stopped
-  this.loop = setInterval(gb.run.bind(gb), 8);
+  this.loop = setInterval(gb.run.bind(gb), 29);
   var self = this;
   gb.on('draw', function(){
     self.canvas.toBuffer(function(err, buf){
