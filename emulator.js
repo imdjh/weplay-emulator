@@ -9,7 +9,8 @@ function Emulator(){
   if (!(this instanceof Emulator)) return new Emulator();
   this.canvas = new Canvas(160, 144);
   this.gbOpts = { drawEvents: true,
-      interval: 29,
+      framerate: 29,  // generate ``frame'' event per second
+      interval: 64,   // should twice as $framerate, the bigger the faster emulator clock has
       imageSmoothing: false,
       gbBootRom: true,
       overrideMbc: false,
@@ -32,7 +33,7 @@ Emulator.prototype.initWithState = function(state){
 Emulator.prototype.run = function(){
   var gb = this.gameboy;
   gb.stopEmulator = 1; // not stopped
-  this.loop = setInterval(gb.run.bind(gb), 29);
+  this.loop = setInterval(gb.run.bind(gb), Math.floor(1000 / this.gbOpts.framerate));
   var self = this;
   gb.on('draw', function(){
     self.canvas.toBuffer(function(err, buf){
