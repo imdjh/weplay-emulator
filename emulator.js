@@ -1,4 +1,3 @@
-
 var gameboy = require('gameboy');
 var Canvas = require('canvas');
 var Emitter = require('events').EventEmitter;
@@ -9,8 +8,8 @@ function Emulator(){
   if (!(this instanceof Emulator)) return new Emulator();
   this.canvas = new Canvas(160, 144);
   this.gbOpts = { drawEvents: true,
-      framerate: 29,  // generate ``frame'' event per second
-      interval: 64,   // should twice as $framerate, the bigger the faster emulator clock has
+      framerate: 30,  // generate ``frame'' event per second
+      interval: 25,   // the bigger the faster emulator clock has, 25 is 100% MAGIC
       imageSmoothing: false,
       gbBootRom: true,
       overrideMbc: false,
@@ -33,7 +32,7 @@ Emulator.prototype.initWithState = function(state){
 Emulator.prototype.run = function(){
   var gb = this.gameboy;
   gb.stopEmulator = 1; // not stopped
-  this.loop = setInterval(gb.run.bind(gb), Math.floor(1000 / this.gbOpts.framerate));
+  this.loop = setInterval(gb.run.bind(gb), Math.floor(1000 / this.gbOpts.framerate / 2)); // MAGIC 2, ajust for network latency
   var self = this;
   gb.on('draw', function(){
     self.canvas.toBuffer(function(err, buf){
