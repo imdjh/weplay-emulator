@@ -13,7 +13,7 @@ function Emulator(){
       imageSmoothing: false,
       gbBootRom: true,
       overrideMbc: false,
-      sound: false
+      soundEnabled: false
   };
 }
 
