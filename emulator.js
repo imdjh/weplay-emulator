@@ -11,9 +11,7 @@ function Emulator(){
       framerate: 30,  // generate ``frame'' event per second
       interval: 25,   // the bigger the faster emulator clock has, 25 is 100% MAGIC
       imageSmoothing: false,
-      gbBootRom: true,
-      overrideMbc: false,
-      sound: false
+      overrideMbc: false
   };
 }
 
