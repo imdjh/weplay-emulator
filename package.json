@@ -4,7 +4,7 @@
   "description": "A GB frame backer, passing canvas to redis",
   "dependencies": {
     "redis": "^2.2.1",
-    "gameboy": "0.1.0",
+    "gameboy": "git://github.com/imdjh/gameboy#bump_to_0.12x",
     "canvas": "1.2.10",
     "msgpack": "^1.0.2",
     "socket.io-emitter": "0.1.0"
